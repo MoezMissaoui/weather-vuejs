@@ -1,38 +1,39 @@
 <template>
-    <h1> Weather list </h1>
-
+  <div class="container mt-2 mb-5">
+    <div class="jumbotron">
+      <h1>
+        {{ 
+          ((weathers?.city?.name) ? (weathers?.city?.name + ' - ') : ' ') + 
+          (weathers?.city?.country ?? '') 
+        }}
+      </h1>      
+    </div>     
 
     <div class="row">
-
-      <div class="col-md-3" v-for="weather in weathers?.list" v-bind:key="weather">
-
+      <div class="col-md-2" v-for="weather in weathers?.list" v-bind:key="weather">
         <WeatherCard
           :weather="weather"
         />
-
       </div>
     </div>
-  
-  
-  </template>
-    
-  <script>
+</div>
 
+</template>
+    
+<script>
   import WeatherCard  from "./WeatherCard.vue";
 
-    export default {
-      name: 'WeatherList',
-      components: {
-        WeatherCard,
-      },
-      props:{
-        weathers: Object
-      },
-    }
-  </script>
+  export default {
+    name: 'WeatherList',
+    components: {
+      WeatherCard,
+    },
+    props:{
+      weathers: Object
+    },
+  }
+</script>
     
-  <!-- Add "scoped" attribute to limit CSS to this component only -->
-  <style scoped>
-  
-  </style>
-    
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
