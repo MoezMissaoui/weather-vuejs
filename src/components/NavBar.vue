@@ -1,13 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     
-    <a class="navbar-brand" href="/">
+    <router-link class="navbar-brand" to="/">
       <Image
           :_src="require('@/assets/logo.avif')"
           _width="30"
           :_alt="app_name"
       />
-    </a>
+    </router-link>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
       <ul class="navbar-nav mr-auto float-end">
 
         <li class="nav-item float-end">
-          <a class="nav-link" href="#">About Us</a>
+          <router-link class="nav-link" to="/about">About Us</router-link>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

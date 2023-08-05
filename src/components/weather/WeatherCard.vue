@@ -23,7 +23,7 @@
 
             <p class="card-text"> 
                 <small>
-                    <font-awesome-icon icon="temperature-half" />
+                    <i class="fa fa-thermometer-half"></i>
                     {{ kelvin_to_celsius(weather?.main?.temp) }}
                 </small>
                 <br>
@@ -40,8 +40,8 @@
 <script>
 
     import { month_names } from "@/config";
-    import Image  from "../standard/Image.vue";
-    import Badge  from "../standard/Badge.vue";
+    import Image  from "@/components/standard/Image.vue";
+    import Badge  from "@/components/standard/Badge.vue";
 
     export default {
         name: 'WeatherCard',
