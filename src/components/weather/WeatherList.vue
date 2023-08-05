@@ -1,7 +1,7 @@
 <template>
-  <div class="container mt-2 mb-5">
-    <div class="jumbotron">
-      <h1>
+  <div class="container mt-4 mb-5">
+    <div class="jumbotron shadow-sm bg-info text-white">
+      <h1 class="display-4">
         {{ 
           ((weathers?.city?.name) ? (weathers?.city?.name + ' - ') : ' ') + 
           (weathers?.city?.country ?? '') 
@@ -17,7 +17,6 @@
       </div>
     </div>
 </div>
-
 </template>
     
 <script>

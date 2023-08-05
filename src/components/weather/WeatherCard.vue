@@ -1,11 +1,11 @@
 <template>
-    <div class="card mt-3">
+    <div class="card mt-4 shadow-sm">
         <div class="card-body">
 
             <h6 class="card-title">
                 <small>
                     <Badge
-                        :_class="'badge-pill badge-secondary'"
+                        :_class="'badge-pill badge-info'"
                         :text="get_date(weather?.dt)"
                     />
                 </small>
@@ -20,8 +20,6 @@
             />
 
             <hr/>
-
-
 
             <p class="card-text"> 
                 <small>
@@ -41,9 +39,9 @@
   
 <script>
 
-import { month_names } from "@/config";
-import Image  from "../Image.vue";
-import Badge  from "../Badge.vue";
+    import { month_names } from "@/config";
+    import Image  from "../standard/Image.vue";
+    import Badge  from "../standard/Badge.vue";
 
     export default {
         name: 'WeatherCard',

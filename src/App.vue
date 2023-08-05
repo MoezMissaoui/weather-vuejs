@@ -12,7 +12,6 @@
   import WeatherList from './components/weather/WeatherList.vue'
   import {get_weather_infos, get_geocoding} from './actions/weather' 
 
-
   export default {
     name: 'App',
     components: {

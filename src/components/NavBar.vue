@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
     
     <a class="navbar-brand" href="/">
       <Image
@@ -29,7 +29,7 @@
 </template>
   
 <script>
-import Image  from "./Image.vue";
+  import Image  from "./standard/Image.vue";
   export default {
     name: 'NavBar',
     components: {
