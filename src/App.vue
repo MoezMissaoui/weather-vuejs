@@ -1,17 +1,13 @@
 <template>
-  <component :is="$route.meta.layout || 'DefaultLayout'">
+  <component :is="this.$route.meta.layoutComponent">
     <router-view />
   </component>
 </template>
 
 
 <script>
-    import DefaultLayout from '@/layouts/DefaultLayout.vue'
     export default {
-        name: 'App',
-        components: {
-            DefaultLayout
-        }
+        name: 'App'
     }
 </script>
 
