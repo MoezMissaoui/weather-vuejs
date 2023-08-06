@@ -1,28 +1,23 @@
 <template>
-    <NavBar
-        :app_name="app_name"
-    />
+  
+
     <div class="container mt-5">
         <WeatherList
             :weathers="weathers"
         />
     </div>
+  
 
-    <Footer />
 </template>
 
 <script>
-  import NavBar from '@/components/NavBar.vue'
   import WeatherList from '@/components/weather/WeatherList.vue'
   import {get_weather_infos, get_geocoding} from '@/actions/weather' 
-  import Footer  from "@/components/Footer.vue";
 
   export default {
     name: 'Home',
     components: {
-      NavBar,
       WeatherList,
-      Footer,
     },
 
     mounted() {
@@ -52,7 +47,6 @@
     },
     data () {
       return {
-        app_name : process.env.VUE_APP_TITLE ?? 'WEATHER APPLICATION',
         weathers : [],
       }
     }

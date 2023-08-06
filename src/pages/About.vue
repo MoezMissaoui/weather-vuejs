@@ -1,8 +1,4 @@
 <template>
-
-    <NavBar
-        :app_name="app_name"
-    />
     <div class="container mt-5">
           <div class="bg-light">
             <div class="container py-5">
@@ -172,26 +168,11 @@
             </div>
           </div>
     </div>
-
-    <Footer />
 </template>
 
 <script>
-    import NavBar from '@/components/NavBar.vue'
-    import Footer  from "@/components/Footer.vue";
-
     export default {
         name: 'About',
-            components: {
-            NavBar,
-            Footer
-        },
-
-        data () {
-            return {
-                app_name : process.env.VUE_APP_TITLE ?? 'WEATHER APPLICATION',
-            }
-        }
     }
 </script>
 

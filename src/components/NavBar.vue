@@ -4,7 +4,7 @@
     <router-link class="navbar-brand" to="/">
       <Image
           :_src="require('@/assets/logo.avif')"
-          _width="30"
+          :_width="30"
           :_alt="app_name"
       />
     </router-link>
