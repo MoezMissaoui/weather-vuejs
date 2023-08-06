@@ -1,7 +1,7 @@
 <template>
-  <DefaultLayout>
-      <router-view />
-  </DefaultLayout>
+  <component :is="$route.meta.layout || 'DefaultLayout'">
+    <router-view />
+  </component>
 </template>
 
 
@@ -10,10 +10,9 @@
     export default {
         name: 'App',
         components: {
-          DefaultLayout
+            DefaultLayout
         }
     }
-
 </script>
 
 <style>
