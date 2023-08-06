@@ -1,19 +1,14 @@
 <template>
-  
-
     <div class="container mt-5">
         <WeatherList
             :weathers="weathers"
         />
     </div>
-  
-
 </template>
 
 <script>
   import WeatherList from '@/components/weather/WeatherList.vue'
   import {get_weather_infos, get_geocoding} from '@/actions/weather' 
-
   export default {
     name: 'Home',
     components: {
@@ -22,7 +17,7 @@
 
     mounted() {
       /**** BEGIN Get geo coding of given city ****/
-        get_geocoding('Tunis').then(
+        get_geocoding(this.$route.params.region || 'Tunis').then(
           (res) => {  
 
             /**** BEGIN Get weather info ****/
