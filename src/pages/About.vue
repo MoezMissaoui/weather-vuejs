@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-5">
+    <div class="container">
           <div class="bg-light">
             <div class="container py-5">
               <div class="row h-100 align-items-center py-5">

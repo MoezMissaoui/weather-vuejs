@@ -7,7 +7,40 @@
 
 <script>
     export default {
-        name: 'App'
+        name: 'App',
+
+        // beforeCreate(){
+        //   alert('beforeCreate')
+        // },
+
+        // created(){
+        //   alert('created')
+        // },
+
+        // beforeMount(){
+        //   alert('beforeMount')
+        // },
+
+        // mounted(){
+        //   alert('mounted')
+        // },
+
+        // beforeUpdate(){
+        //   alert('beforeUpdate')
+        // },
+
+        // updated(){
+        //   alert('updated')
+        // },
+
+        // beforeUnmount(){
+        //   alert('beforeUnmount')
+        // },
+
+        // unmounted(){
+        //   alert('unmounted')
+        // },
+
     }
 </script>
 

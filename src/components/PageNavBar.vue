@@ -40,5 +40,11 @@
     
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1;
+    }
   </style>
     

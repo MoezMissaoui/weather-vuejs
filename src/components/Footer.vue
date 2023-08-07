@@ -7,8 +7,14 @@
 </template>
   
 <script>
-
     export default {
         name: 'Footer'
     }
 </script>
+
+<style scoped>
+    footer {
+        position: relative;
+        width: 100%;
+    }
+</style>
