@@ -1,6 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Home from "@/pages/Home.vue";
-import About from "@/pages/About.vue";
+// import Home from "@/pages/Home.vue";
+// import About from "@/pages/About.vue";
 import NotFound from "@/pages/NotFound.vue";
 
 // import MainLayout from "@/layouts/MainLayout.vue";
@@ -13,7 +13,8 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    // component: Home, // Eager Loading  
+    component: () => import('@/pages/Home.vue'), // Lazy Loading
     meta: {
       layout_name: 'MainLayout'
     }
@@ -21,7 +22,8 @@ const routes = [
   {
     path: "/weather/:region",
     name: "HomeRegion",
-    component: Home,
+    // component: Home, // Eager Loading
+    component: () => import('@/pages/Home.vue'), // Lazy Loading
     meta: {
       layout_name: 'MainLayout'
     }
@@ -29,7 +31,8 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    component: About,
+    // component: About, // Eager Loading
+    component: () => import('@/pages/About.vue'), // Lazy Loading
     meta: {
       layout_name: 'PageLayout'
     }
