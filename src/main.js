@@ -17,6 +17,11 @@ import router from './router'
 //add bootstrap css 
 import "bootstrap/dist/css/bootstrap.css";
 
+//add custom CSS variables and styles
+import "@/assets/styles/variables.css";
+import "./assets/styles/animations.css";
+import "./assets/styles/typography.css";
+
 //add font-awesome css 
 import "@/assets/plugins/fontawesome/font-awesome.css";
 
