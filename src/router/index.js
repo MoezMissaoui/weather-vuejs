@@ -21,11 +21,18 @@ const routes = [
   },
   {
     path: "/weather/:region",
-    name: "HomeRegion",
+    name: "HomeByRegion",
     // component: Home, // Eager Loading
     component: () => import('@/pages/Home.vue'), // Lazy Loading
     meta: {
       layout_name: 'MainLayout'
+    },
+    props: (route) => {
+      const region= Number.parseInt(route.params.region, 10)
+      if (Number.isNaN(region)) {
+        return 0
+      }
+      return { region }
     }
   },
   {
@@ -53,5 +60,9 @@ const router = createRouter({
 
 // Before each route changing the loadLayoutMiddleware middleware is executing.
 router.beforeEach(loadLayoutMiddleware)
+
+router.beforeEach(async (to , from) => {
+  console.log('Hello from BeforeRoute from:'+ from.name + ', To:'+ to.name );
+})
 
 export default router;

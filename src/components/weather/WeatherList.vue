@@ -1,5 +1,10 @@
 <template>
-  <div v-if="show_list">
+
+  <div v-if="error" class="alert alert-danger" role="alert">
+    Weather API is Down
+  </div>
+
+  <div v-else-if="weathers" >
     
     <div class="bg-light mt-5">
       <div class="container py-5">
@@ -41,9 +46,10 @@
 
   </div>
 
-  <div v-else class="alert alert-danger" role="alert">
-    Weather API is Down
+  <div v-else class="alert alert-info" role="alert">
+    Loading...
   </div>
+  
 </template>
     
 <script>
@@ -70,7 +76,7 @@
               ).catch(
                 (error) => {
                   console.error(error);
-                  this.show_list = false
+                  this.error = error
                 }
               )
             /**** END Get weather info ****/
@@ -79,7 +85,7 @@
         ).catch(
           (error) => {
             console.error(error);
-            this.show_list = false
+            this.error = error
           }
         )
       /**** END Get geo coding of given city ****/
@@ -87,9 +93,9 @@
     
     data () {
       return {
-        weathers : [],
+        weathers : null,
         region : this.$route.params.region || 'Tunis',
-        show_list : true
+        error : null
       }
     }
   }

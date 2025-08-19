@@ -26,4 +26,4 @@ export const fetch_weather = (region) => {
         }
       )
     /**** END Get geo coding of given city ****/
-  }
+}
