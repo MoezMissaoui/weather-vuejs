@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import { createPinia } from 'pinia'
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { 
@@ -25,10 +26,13 @@ import "./assets/styles/typography.css";
 //add font-awesome css 
 import "@/assets/plugins/fontawesome/font-awesome.css";
 
-createApp(App)
-    .use(router)
-    .component("font-awesome-icon", FontAwesomeIcon)
-    .mount('#app')
+const app = createApp(App)
+const pinia = createPinia()
+
+app.use(pinia)
+   .use(router)
+   .component("font-awesome-icon", FontAwesomeIcon)
+   .mount('#app')
 
 //add bootstrap js 
 import "bootstrap/dist/js/bootstrap.js";

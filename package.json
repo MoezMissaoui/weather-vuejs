@@ -5,7 +5,12 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint:fix": "vue-cli-service lint --fix",
+    "format": "prettier --write \"src/**/*.{js,vue,css,scss,html,json}\"",
+    "format:check": "prettier --check \"src/**/*.{js,vue,css,scss,html,json}\"",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -14,6 +19,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.0",
     "core-js": "^3.8.3",
+    "pinia": "^3.0.3",
     "vue": "^3.3.4",
     "vue-axios": "^3.5.2",
     "vue-router": "^4.0.13"
@@ -24,24 +30,108 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/eslint-config-prettier": "^7.1.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "http-server": "^14.1.1"
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "eslint-plugin-vue": "^7.20.0",
+    "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2"
   },
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "browser": true,
+      "es2021": true
     },
     "extends": [
-      "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "plugin:vue/vue3-recommended",
+      "eslint:recommended",
+      "plugin:import/recommended",
+      "plugin:promise/recommended",
+      "@vue/prettier"
     ],
     "parserOptions": {
-      "parser": "@babel/eslint-parser"
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false,
+      "ecmaVersion": 2021,
+      "sourceType": "module"
     },
+    "plugins": [
+      "vue",
+      "import",
+      "promise"
+    ],
     "rules": {
-      "vue/multi-word-component-names": "off"
+      "vue/multi-word-component-names": "off",
+      "vue/component-definition-name-casing": [
+        "error",
+        "PascalCase"
+      ],
+      "vue/component-name-in-template-casing": [
+        "error",
+        "PascalCase"
+      ],
+      "vue/no-unused-vars": "error",
+      "vue/no-unused-components": "warn",
+      "vue/require-default-prop": "error",
+      "vue/require-prop-types": "error",
+      "vue/prop-name-casing": [
+        "error",
+        "camelCase"
+      ],
+      "vue/attribute-hyphenation": [
+        "error",
+        "always"
+      ],
+      "vue/v-on-event-hyphenation": [
+        "error",
+        "always"
+      ],
+      "no-console": "warn",
+      "no-debugger": "warn",
+      "no-unused-vars": "warn",
+      "prefer-const": "error",
+      "no-var": "error",
+      "object-shorthand": "error",
+      "prefer-template": "error",
+      "import/order": [
+        "error",
+        {
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "newlines-between": "always"
+        }
+      ],
+      "import/no-unresolved": "off",
+      "promise/always-return": "error",
+      "promise/catch-or-return": "error"
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            [
+              "@",
+              "./src"
+            ]
+          ],
+          "extensions": [
+            ".js",
+            ".vue"
+          ]
+        }
+      }
     }
   },
   "browserslist": [
@@ -49,5 +139,19 @@
     "last 2 versions",
     "not dead",
     "not ie 11"
-  ]
+  ],
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss,html,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
 }
